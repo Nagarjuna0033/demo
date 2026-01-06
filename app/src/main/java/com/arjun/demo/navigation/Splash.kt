@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.arjun.demo.core.ui.components.DemoScaffold
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -21,7 +22,7 @@ fun NavGraphBuilder.splashDestination() {
 fun SplashScreen(
     modifier: Modifier = Modifier,
 ) {
-    Scaffold {
+    DemoScaffold {
         Box(
             modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center,
