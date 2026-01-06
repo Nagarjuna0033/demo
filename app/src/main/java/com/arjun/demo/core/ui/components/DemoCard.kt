@@ -37,7 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MifosCustomCard(
+fun DemoCustomCard(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     enabled: Boolean = true,
@@ -92,14 +92,15 @@ fun MifosCustomCard(
 
 @Composable
 fun DemoExploreCard(
-    text: String,
+    title: String,
+    subTitle: String,
     icon: ImageVector,
     modifier: Modifier = Modifier,
     multiline: Boolean = true,
     maxLines: Int = 2,
     onClick: () -> Unit,
 ) {
-    MifosCustomCard(
+    DemoCustomCard(
         modifier = modifier
             .height(125.dp)
             .border(
@@ -122,25 +123,47 @@ fun DemoExploreCard(
         ) {
             Image(
                 imageVector = icon,
-                contentDescription = text,
+                contentDescription = title,
                 modifier = Modifier.size(35.dp),
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurface),
             )
 
-            Text(
-                text = if (multiline) {
-                    text.replaceFirst(" ", "\n")
-                } else {
-                    text
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight(),
-                style = MaterialTheme.typography.bodyMedium,
-                maxLines = maxLines,
-                overflow = TextOverflow.MiddleEllipsis,
-                textAlign = TextAlign.Start,
-            )
+            Column(
+
+            ) {
+                Text(
+                    text = if (multiline) {
+                        title.replaceFirst(" ", "\n")
+                    } else {
+                        title
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight(),
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = maxLines,
+                    overflow = TextOverflow.MiddleEllipsis,
+                    textAlign = TextAlign.Start,
+                )
+
+                Text(
+                    text = if (multiline) {
+                        subTitle.replaceFirst(" ", "\n")
+                    } else {
+                        subTitle
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight(),
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = maxLines,
+                    overflow = TextOverflow.MiddleEllipsis,
+                    textAlign = TextAlign.Start,
+                )
+
+
+            }
+
         }
     }
 }
@@ -158,7 +181,8 @@ private fun Demo_Explore_Card_Preview() {
             DemoExploreCard(
                 modifier = Modifier.weight(0.5f, true),
                 icon = Icons.Default.Home,
-                text = "Home Loan",
+                title = "Home Loan",
+                subTitle = "Sub title",
                 onClick = { /* Handle click */ },
             )
 
@@ -166,7 +190,8 @@ private fun Demo_Explore_Card_Preview() {
             DemoExploreCard(
                 modifier = Modifier.weight(0.5f, true),
                 icon = Icons.Default.Home,
-                text = "Personal Loan",
+                title = "Home Loan",
+                subTitle = "Sub title",
                 onClick = { /* Handle click */ },
             )
         }
@@ -174,14 +199,16 @@ private fun Demo_Explore_Card_Preview() {
         // Method 3: Single line version
         DemoExploreCard(
             icon = Icons.Default.Home,
-            text = "Savings Account",
+            title = "Home Loan",
+            subTitle = "Sub title",
             multiline = true,
             onClick = { /* Handle click */ },
         )
 
         DemoExploreCard(
             icon = Icons.Default.Home,
-            text = "Business Account",
+            title = "Home Loan",
+            subTitle = "Sub title",
             multiline = true,
             onClick = { /* Handle click */ },
         )

@@ -5,9 +5,13 @@ import com.arjun.demo.core.data.repository.BannerRepository
 import com.arjun.demo.core.model.BannerConfig
 import com.arjun.demo.core.model.ListWidgetConfig
 import com.arjun.demo.core.network.fake.BannerFakeDataSource
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 
 class BannerRepositoryImpl(
     private val dataSource: BannerFakeDataSource
@@ -16,8 +20,8 @@ class BannerRepositoryImpl(
     override fun getBannerData(
         instanceId: String
     ): Flow<DataState<List<BannerConfig>>> = flow {
+        delay(5000)
         val data = dataSource.getData(instanceId)
-
         if (data.isEmpty()) {
             emit(DataState.Empty)
         } else {
@@ -30,5 +34,5 @@ class BannerRepositoryImpl(
                 throwable = e
             )
         )
-    }
+    }.flowOn(Dispatchers.IO)
 }

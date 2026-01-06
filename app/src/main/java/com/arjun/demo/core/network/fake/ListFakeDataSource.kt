@@ -1,14 +1,25 @@
 package com.arjun.demo.core.network.fake
 
 import com.arjun.demo.core.model.ListWidgetConfig
-import kotlinx.coroutines.delay
 
 object ListFakeDataSource {
-    suspend fun getData(instanceId: String): List<ListWidgetConfig> {
-        delay(1200)
-        if (instanceId == "shows") throw Exception("Error")
-        return List(10) {
-            ListWidgetConfig(instanceId, "Item $it")
+    fun getData(instanceId: String): List<ListWidgetConfig> {
+
+        val cinemaNames = listOf(
+            "Kalki",
+            "Business man",
+            "Pokiri",
+            "Bahubali",
+            "Athadu",
+            "Khaleja",
+            "HIT: The Third Case",
+            "Darling",
+            "Run Raja Run",
+            "Okkadu"
+        )
+
+        return cinemaNames.mapIndexed { index, name ->
+            ListWidgetConfig(id = index.toString(), name = instanceId, surname = name)
         }
     }
 }
