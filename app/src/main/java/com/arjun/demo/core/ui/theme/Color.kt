@@ -1,4 +1,4 @@
-package com.arjun.demo.ui.theme
+package com.arjun.demo.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
