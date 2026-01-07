@@ -332,6 +332,11 @@ This widget system demonstrates **production-ready Android development** with:
 
 This Dashboard Widget System showcases a **modern, scalable architecture** for building dynamic, widget-based UIs in Jetpack Compose. The design supports large dashboards with multiple widget instances, handles failures gracefully, and provides an excellent foundation for future enhancements like server-driven UI, caching, and pagination.
 
+<img src = "https://github.com/user-attachments/assets/b1356285-0226-47d5-a5c5-1b437a404c4b" height = "750" width = "350" />
+<img src = "https://github.com/user-attachments/assets/6369598c-8ecc-4872-acb7-d4a0bfea6556" height = "750" width = "350" />
+<img src = "https://github.com/user-attachments/assets/69e41320-7ae0-44ac-8c45-efa3080da434" height = "750" width = "350" />
+
+
 The implementation follows Android best practices and demonstrates expertise in:
 
 - **Clean Architecture** principles
